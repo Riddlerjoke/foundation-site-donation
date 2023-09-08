@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}IPA - InGen Preservation Agency{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='backgroundbody.png') }}');">
+        <nav>
+
+                <div id="infobox" style="background-color: darkgreen">
+
+                    <div class="homebutton1">
+                        <a href="{{ url_for('index') }}"><img src="/static/image/ingenicon.png" alt="home" name="home" id="homebutton1" ></a>
+                    </div>
+
+                    <div class="element2">
+                        <ul style="color: rgb(255, 255, 255); font-family: Georgia, sans-serif;z-index: 10; ">
+
+                            <li class=""><a class="button2" href="{{ url_for('about') }}">À Propos</a></li>
+                            <li class=""><a class="button2" href="{{ url_for('donate') }}">Faire un Don</a></li>
+                            <li class=""><a class="button2" href="{{ url_for('donateurs') }}">Grace à Vous</a></li>
+
+
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+
+        {% block content %}{% endblock %}
+
+
+
+
+
+    <footer>
+        <p>Tous droits réservés &copy; 2023 IPA - InGen Preservation Agency</p>
+    </footer>
+</body>
+</html>

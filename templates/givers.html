@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}C'est Grace à Vous - Fondation XYZ{% endblock %}
+
+{% block content %}
+    <div class="image-decoration"></div>
+    <header>
+        <div class="givers">
+            <h2>Nos Donateurs Privilégiés </h2>
+            <p>Merci de soutenir la Fondation I.P.A en faisant un don !</p>
+            <ul>
+                {% for donateur in donateurs %}
+                    {% if loop.index <= 15 %}
+                        <li><span class="emoji">🌴</span> {{ donateur[0] }} a fait un don de : {{ donateur[1] }} €</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <p>Votre générosité nous a permis de rassembler : {{ total_des_fonds }} €</p>
+        </div>
+
+        <div class="last-15-givers">
+            <h2>Merci de nous faire confiance</h2>
+            <ul>
+                {% for donateur in donateurs[:10] %}
+                    <li><span class="emoji">👏</span> {{ donateur[0] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </header>
+{% endblock %}

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql
+    volumes:
+      - my_database_volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3307:3306
+
+volumes:
+  my_database_volume:
